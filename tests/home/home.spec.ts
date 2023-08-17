@@ -20,3 +20,16 @@ test("can add checklists", async () => {
 
   expect(currentPage.getByText(testTitle)).toBeVisible();
 });
+
+test("can cancel adding checklist", async () => {
+  const testTitle = "abc";
+  await homePage.createChecklistButton.click();
+  await homePage.titleInput.fill(testTitle);
+  await homePage.closeModalButton.click();
+
+  expect(homePage.titleInput).not.toBeVisible();
+
+  await homePage.createChecklistButton.click();
+
+  expect(homePage.titleInput).toHaveValue("");
+});

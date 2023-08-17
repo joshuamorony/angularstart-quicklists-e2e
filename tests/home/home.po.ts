@@ -4,6 +4,7 @@ export class HomePage {
   page: Page;
   createChecklistButton: Locator;
   titleInput: Locator;
+  closeModalButton: Locator;
   saveChecklistButton: Locator;
   noChecklistsMessage: Locator;
 
@@ -11,6 +12,7 @@ export class HomePage {
     this.page = page;
     this.createChecklistButton = page.getByTestId("create-checklist-button");
     this.saveChecklistButton = page.getByTestId("save-checklist-button");
+    this.closeModalButton = page.getByTestId("close-modal-button");
     this.titleInput = page.getByLabel("title");
     this.noChecklistsMessage = page.getByText("create your first");
   }
