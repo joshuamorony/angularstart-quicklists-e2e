@@ -33,3 +33,11 @@ test("can cancel adding checklist", async () => {
 
   expect(homePage.titleInput).toHaveValue("");
 });
+
+test("can delete checklist", async () => {
+  const testTitle = "my test checklist";
+  await homePage.createChecklist(testTitle);
+  await homePage.deleteChecklistButton.click();
+
+  expect(currentPage.getByText(testTitle)).not.toBeVisible();
+});

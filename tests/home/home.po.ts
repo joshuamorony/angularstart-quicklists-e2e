@@ -6,6 +6,7 @@ export class HomePage {
   titleInput: Locator;
   closeModalButton: Locator;
   saveChecklistButton: Locator;
+  deleteChecklistButton: Locator;
   noChecklistsMessage: Locator;
 
   constructor(page: Page) {
@@ -13,6 +14,7 @@ export class HomePage {
     this.createChecklistButton = page.getByTestId("create-checklist-button");
     this.saveChecklistButton = page.getByTestId("save-checklist-button");
     this.closeModalButton = page.getByTestId("close-modal-button");
+    this.deleteChecklistButton = page.getByTestId("delete-button");
     this.titleInput = page.getByLabel("title");
     this.noChecklistsMessage = page.getByText("create your first");
   }
