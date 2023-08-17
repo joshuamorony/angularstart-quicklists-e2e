@@ -14,7 +14,7 @@ export class HomePage {
     this.createChecklistButton = page.getByTestId("create-checklist-button");
     this.saveChecklistButton = page.getByTestId("save-checklist-button");
     this.closeModalButton = page.getByTestId("close-modal-button");
-    this.deleteChecklistButton = page.getByTestId("delete-button");
+    this.deleteChecklistButton = page.getByTestId("delete-checklist");
     this.titleInput = page.getByLabel("title");
     this.noChecklistsMessage = page.getByText("create your first");
   }
