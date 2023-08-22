@@ -50,4 +50,5 @@ test("can edit checklist", async () => {
   await homePage.editChecklist(editedTitle);
 
   expect(currentPage.getByText(editedTitle)).toBeVisible();
+  expect(currentPage.getByText(originalTitle)).not.toBeVisible();
 });
