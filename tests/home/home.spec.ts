@@ -41,3 +41,13 @@ test("can delete checklist", async () => {
 
   expect(currentPage.getByText(testTitle)).not.toBeVisible();
 });
+
+test("can edit checklist", async () => {
+  const originalTitle = "my test checklist";
+  const editedTitle = "my edited checklist";
+
+  await homePage.createChecklist(originalTitle);
+  await homePage.editChecklist(editedTitle);
+
+  expect(currentPage.getByText(editedTitle)).toBeVisible();
+});
