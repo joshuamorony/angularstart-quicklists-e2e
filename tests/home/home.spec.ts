@@ -1,11 +1,14 @@
 import { test, expect, type Page } from "@playwright/test";
 import { HomePage } from "./home.po";
+import { ChecklistPage } from "../checklist/checklist.po";
 
 let homePage: HomePage;
+let checklistPage: ChecklistPage;
 let currentPage: Page;
 
 test.beforeEach(async ({ page }) => {
   homePage = new HomePage(page);
+  checklistPage = new ChecklistPage(page);
   currentPage = page;
   await homePage.goto();
 });
@@ -51,4 +54,11 @@ test("can edit checklist", async () => {
 
   expect(currentPage.getByText(editedTitle)).toBeVisible();
   expect(currentPage.getByText(originalTitle)).not.toBeVisible();
+});
+
+test("can view detail for specific checklist", async () => {
+  await homePage.createChecklist("test");
+  await homePage.checklistLink.click();
+
+  expect(checklistPage.checklistTitle).toBeVisible();
 });

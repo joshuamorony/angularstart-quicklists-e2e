@@ -8,6 +8,7 @@ export class HomePage {
   saveChecklistButton: Locator;
   deleteChecklistButton: Locator;
   editChecklistButton: Locator;
+  checklistLink: Locator;
   noChecklistsMessage: Locator;
 
   constructor(page: Page) {
@@ -19,6 +20,7 @@ export class HomePage {
     this.editChecklistButton = page.getByTestId("edit-checklist");
     this.titleInput = page.getByLabel("title");
     this.noChecklistsMessage = page.getByText("create your first");
+    this.checklistLink = page.getByTestId("checklist-link");
   }
 
   async goto() {
