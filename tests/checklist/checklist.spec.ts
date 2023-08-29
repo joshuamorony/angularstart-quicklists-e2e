@@ -13,3 +13,10 @@ test.beforeEach(async ({ page }) => {
 test("no checklist items message displayed", async () => {
   await expect(checklistPage.noChecklistItemsMessage).toBeVisible();
 });
+
+test("can add checklist item", async () => {
+  const testTitle = "my checklist item";
+  await checklistPage.createItem(testTitle);
+
+  expect(currentPage.getByText(testTitle)).toBeVisible();
+});

@@ -6,12 +6,16 @@ export class ChecklistPage {
   homePage: HomePage;
   checklistTitle: Locator;
   noChecklistItemsMessage: Locator;
+  createChecklistItemButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
     this.homePage = new HomePage(page);
     this.checklistTitle = page.getByTestId("checklist-title");
     this.noChecklistItemsMessage = page.getByText("your first item");
+    this.createChecklistItemButton = page.getByTestId(
+      "create-checklist-item-button"
+    );
   }
 
   async goto() {
@@ -19,5 +23,11 @@ export class ChecklistPage {
     await this.homePage.goto();
     await this.homePage.createChecklist(title);
     await this.homePage.checklistLink.click();
+  }
+
+  async createItem(title: string) {
+    await this.createChecklistItemButton.click();
+    await this.homePage.titleInput.fill(title);
+    await this.homePage.saveChecklistButton.click();
   }
 }
