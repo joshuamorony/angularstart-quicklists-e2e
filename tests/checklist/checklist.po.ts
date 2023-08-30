@@ -7,6 +7,7 @@ export class ChecklistPage {
   checklistTitle: Locator;
   noChecklistItemsMessage: Locator;
   createChecklistItemButton: Locator;
+  deleteChecklistItemButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,6 +16,9 @@ export class ChecklistPage {
     this.noChecklistItemsMessage = page.getByText("your first item");
     this.createChecklistItemButton = page.getByTestId(
       "create-checklist-item-button"
+    );
+    this.deleteChecklistItemButton = page.getByTestId(
+      "delete-checklist-item-button"
     );
   }
 
