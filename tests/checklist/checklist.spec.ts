@@ -78,7 +78,15 @@ test("can reset checked state of entire list", async () => {
     await button.click();
   }
 
-  expect(checklistPage.checkedIndicator).toBeVisible();
+  const indicators = await checklistPage.checkedIndicator.all();
+
+  for (const indicator of indicators) {
+    expect(indicator).toBeVisible();
+  }
+
   await checklistPage.resetItemsButton.click();
-  expect(checklistPage.checkedIndicator).not.toBeVisible();
+
+  for (const indicator of indicators) {
+    expect(indicator).not.toBeVisible();
+  }
 });
