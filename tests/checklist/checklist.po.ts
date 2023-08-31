@@ -10,6 +10,7 @@ export class ChecklistPage {
   deleteChecklistItemButton: Locator;
   editChecklistItemButton: Locator;
   toggleChecklistItemButton: Locator;
+  resetItemsButton: Locator;
   checkedIndicator: Locator;
 
   constructor(page: Page) {
@@ -29,6 +30,7 @@ export class ChecklistPage {
     this.toggleChecklistItemButton = page.getByTestId(
       "toggle-checklist-item-button"
     );
+    this.resetItemsButton = page.getByTestId("reset-items-button");
 
     this.checkedIndicator = page.getByTestId("checked-indicator");
   }

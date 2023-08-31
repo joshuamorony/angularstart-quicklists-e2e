@@ -67,3 +67,18 @@ test("displays checked status of item", async () => {
 
   expect(checklistPage.checkedIndicator).toBeVisible();
 });
+
+test("can reset checked state of entire list", async () => {
+  await checklistPage.createItem("test one");
+  await checklistPage.createItem("test two");
+
+  const toggleButtons = await checklistPage.toggleChecklistItemButton.all();
+
+  for (const button of toggleButtons) {
+    await button.click();
+  }
+
+  expect(checklistPage.checkedIndicator).toBeVisible();
+  await checklistPage.resetItemsButton.click();
+  expect(checklistPage.checkedIndicator).not.toBeVisible();
+});
