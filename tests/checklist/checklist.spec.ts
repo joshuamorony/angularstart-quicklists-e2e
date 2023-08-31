@@ -55,3 +55,17 @@ test("can edit checklist item", async () => {
   expect(currentPage.getByText(editedTitle)).toBeVisible();
   expect(currentPage.getByText(originalTitle)).not.toBeVisible();
 });
+
+test("displays checked status of item", async () => {
+  const testTitle = "test";
+
+  await checklistPage.createItem(testTitle);
+
+  expect(checklistPage.checkedFalse).toBeVisible();
+  expect(checklistPage.checkedTrue).not.toBeVisible();
+
+  await checklistPage.toggleChecklistItemButton.click();
+
+  expect(checklistPage.checkedFalse).not.toBeVisible();
+  expect(checklistPage.checkedTrue).toBeVisible();
+});
