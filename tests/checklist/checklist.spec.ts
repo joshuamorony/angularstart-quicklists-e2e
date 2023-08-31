@@ -61,11 +61,9 @@ test("displays checked status of item", async () => {
 
   await checklistPage.createItem(testTitle);
 
-  expect(checklistPage.checkedFalse).toBeVisible();
-  expect(checklistPage.checkedTrue).not.toBeVisible();
+  expect(checklistPage.checkedIndicator).not.toBeVisible();
 
   await checklistPage.toggleChecklistItemButton.click();
 
-  expect(checklistPage.checkedFalse).not.toBeVisible();
-  expect(checklistPage.checkedTrue).toBeVisible();
+  expect(checklistPage.checkedIndicator).toBeVisible();
 });

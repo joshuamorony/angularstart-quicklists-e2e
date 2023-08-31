@@ -10,8 +10,7 @@ export class ChecklistPage {
   deleteChecklistItemButton: Locator;
   editChecklistItemButton: Locator;
   toggleChecklistItemButton: Locator;
-  checkedFalse: Locator;
-  checkedTrue: Locator;
+  checkedIndicator: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -31,8 +30,7 @@ export class ChecklistPage {
       "toggle-checklist-item-button"
     );
 
-    this.checkedFalse = page.getByTestId("checked-false");
-    this.checkedTrue = page.getByTestId("checked-true");
+    this.checkedIndicator = page.getByTestId("checked-indicator");
   }
 
   async goto() {
