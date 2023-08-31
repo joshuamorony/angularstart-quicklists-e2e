@@ -8,6 +8,7 @@ export class ChecklistPage {
   noChecklistItemsMessage: Locator;
   createChecklistItemButton: Locator;
   deleteChecklistItemButton: Locator;
+  editChecklistItemButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -20,6 +21,9 @@ export class ChecklistPage {
     this.deleteChecklistItemButton = page.getByTestId(
       "delete-checklist-item-button"
     );
+    this.editChecklistItemButton = page.getByTestId(
+      "edit-checklist-item-button"
+    );
   }
 
   async goto() {
@@ -31,6 +35,13 @@ export class ChecklistPage {
 
   async createItem(title: string) {
     await this.createChecklistItemButton.click();
+    await this.homePage.titleInput.fill(title);
+    await this.homePage.saveChecklistButton.click();
+  }
+
+  async editItem(title: string) {
+    await this.editChecklistItemButton.click();
+    await this.homePage.titleInput.clear();
     await this.homePage.titleInput.fill(title);
     await this.homePage.saveChecklistButton.click();
   }
