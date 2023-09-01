@@ -90,3 +90,12 @@ test("can reset checked state of entire list", async () => {
     expect(indicator).not.toBeVisible();
   }
 });
+
+test("should remember checklist items after refresh", async () => {
+  const testTitle = "my checklist item";
+  await checklistPage.createItem(testTitle);
+
+  await currentPage.goto("/checklist/test-checklist");
+
+  expect(currentPage.getByText(testTitle)).toBeVisible();
+});
