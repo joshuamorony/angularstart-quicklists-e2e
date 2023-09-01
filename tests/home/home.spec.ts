@@ -62,3 +62,12 @@ test("can view detail for specific checklist", async () => {
 
   expect(checklistPage.checklistTitle).toBeVisible();
 });
+
+test("should remember checklists after refresh", async () => {
+  const testTitle = "my test checklist";
+  await homePage.createChecklist(testTitle);
+
+  await homePage.goto();
+
+  expect(currentPage.getByText(testTitle)).toBeVisible();
+});
