@@ -12,6 +12,7 @@ export class ChecklistPage {
   toggleChecklistItemButton: Locator;
   resetItemsButton: Locator;
   checkedIndicator: Locator;
+  backButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -33,6 +34,7 @@ export class ChecklistPage {
     this.resetItemsButton = page.getByTestId("reset-items-button");
 
     this.checkedIndicator = page.getByTestId("checked-indicator");
+    this.backButton = page.getByTestId("back-button");
   }
 
   async goto() {

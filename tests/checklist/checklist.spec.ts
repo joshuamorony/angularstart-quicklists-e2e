@@ -99,3 +99,8 @@ test("should remember checklist items after refresh", async () => {
 
   expect(currentPage.getByText(testTitle)).toBeVisible();
 });
+
+test("can navigate back to home page", async () => {
+  await checklistPage.backButton.click();
+  expect(currentPage.url()).toContain("/home");
+});
